@@ -4,7 +4,7 @@ A Simple Python API Wrapper for discordservices.net
 # Usage
 Installation:
 
-Via pip: `pip install discordservices`
+Via pip: `pip install discordservices==0.0.4`
 
 With autopost:
 ```py
