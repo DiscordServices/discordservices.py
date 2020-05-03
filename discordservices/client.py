@@ -47,3 +47,26 @@ class DSClient:
 					raise Unauthotized(resp, data)
 				elif resp.status == 404:
 					raise NotFound(resp, data)
+					
+	async def post_news(self, title, *, content):
+		base = "https://api.discordservices.net/"
+		
+		if not self.token:
+			raise TokenNotProvided("No token given")
+		else:
+			if not title:
+				print("title is required argument")
+			elif not content:
+				print("content is a required argument")
+			else:
+				payload = {"title": title, "content": content}
+				async with self.session.request('POST', base + f'bot/{self.bot_id}/news', headers={"Authorization": self.token, "Content-Type": "application/json"}, json=payload) as resp:
+					if resp.status == 200:
+						return resp
+						
+					if resp.status == 400:
+						raise BadRequest(resp, data)
+					elif resp.status == 401:
+						raise Unauthotized(resp, data)
+					elif resp.status == 404:
+						raise NotFound(resp, data)

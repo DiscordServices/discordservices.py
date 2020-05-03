@@ -1,17 +1,21 @@
 import setuptools
 
-#with open("README.md", "r") as fh:
-    #long_description = fh.read()
+with open("requirements.txt", "r") as f:
+	requirements = f.read().splitlines()
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
 setuptools.setup(
-    name="discordservices", # Replace with your own username
-    version="0.0.4",
+    name="discordservices.py",
+    version="0.0.1",
     author="mischievousdev",
     author_email="miscdev.py@gmail.com",
     description="A simple API wrapper for discordservices.net",
-    #long_description=long_description,
-    #long_description_content_type="text/markdown",
-    #url="https://github.com/pypa/sampleproject",
+    install_requires=requirements,
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/DiscordServices/discordservices.py",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
