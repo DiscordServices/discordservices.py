@@ -48,7 +48,7 @@ class DSClient:
 				elif resp.status == 404:
 					raise NotFound(resp, data)
 					
-	async def post_news(self, title, *, content):
+	async def post_news(self, title, content):
 		base = "https://api.discordservices.net/"
 		
 		if not self.token:
